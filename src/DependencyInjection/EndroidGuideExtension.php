@@ -7,7 +7,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Endroid\Guide\Bundle\GuideBundle\DependencyInjection;
+namespace Endroid\GuideBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;

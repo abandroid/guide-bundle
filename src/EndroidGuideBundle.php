@@ -7,18 +7,15 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Endroid\Guide\Bundle\GuideBundle;
+namespace Endroid\GuideBundle;
 
-use Endroid\Guide\Bundle\GuideBundle\DependencyInjection\Compiler\LoaderPass;
+use Endroid\GuideBundle\DependencyInjection\Compiler\LoaderPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class EndroidGuideBundle extends Bundle
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function build(ContainerBuilder $container)
+    public function build(ContainerBuilder $container): void
     {
         parent::build($container);
 
