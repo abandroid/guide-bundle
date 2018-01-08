@@ -18,25 +18,19 @@ use Symfony\Component\Config\FileLocator;
 
 class EndroidGuideExtension extends Extension implements PrependExtensionInterface
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $processor = new Processor();
         $config = $processor->processConfiguration(new Configuration(), $configs);
 
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('services.yml');
+        $loader->load('services.yaml');
 
-        $guideDefinition = $container->getDefinition('endroid_guide.guide');
+        $guideDefinition = $container->getDefinition('Endroid\\Guide\\Guide');
         $guideDefinition->addArgument($config['shows']);
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function prepend(ContainerBuilder $container)
+    public function prepend(ContainerBuilder $container): void
     {
         // Add the package to the assets configuration so the correct manifest is used
         $container->prependExtensionConfig('framework', [

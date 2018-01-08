@@ -17,13 +17,13 @@ class LoaderPass implements CompilerPassInterface
 {
     use PriorityTaggedServiceTrait;
 
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
-        if (!$container->has('endroid_guide.guide')) {
+        if (!$container->has('Endroid\\Guide\\Guide')) {
             return;
         }
 
-        $guideDefinition = $container->findDefinition('endroid_guide.guide');
+        $guideDefinition = $container->findDefinition('Endroid\\Guide\\Guide');
 
         $loaders = $this->findAndSortTaggedServices('endroid_guide.loader', $container);
         foreach ($loaders as $loader) {
