@@ -1,0 +1,20 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    _instanceof:
+        Endroid\Guide\Loader\LoaderInterface:
+            tags: ['endroid_guide.loader']
+
+    Endroid\GuideBundle\Controller\:
+        resource: '../../Controller'
+        tags: ['controller.service_arguments']
+
+    Endroid\Guide\Guide: ~
+
+    Endroid\Guide\Loader\EpguidesLoader: ~
+    Endroid\Guide\Loader\LuckyTvLoader: ~
+    Endroid\Guide\Loader\NpoLoader: ~
+    Endroid\Guide\Loader\RtlLoader: ~
