@@ -26,7 +26,7 @@ class ShowController
     }
 
     /**
-     * @Route("/{type}/{label}", name="endroid_guide_show")
+     * @Route("/{type}/{label}", name="guide_show")
      */
     public function __invoke(string $type, string $label): Response
     {

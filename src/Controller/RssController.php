@@ -26,7 +26,7 @@ class RssController
     }
 
     /**
-     * @Route("/rss", defaults={"_format"="xml"}, name="endroid_guide_rss")
+     * @Route("/rss", defaults={"_format"="xml"}, name="guide_rss")
      */
     public function __invoke(): Response
     {

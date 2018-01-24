@@ -26,7 +26,7 @@ class ListController
     }
 
     /**
-     * @Route("/", name="endroid_guide_list")
+     * @Route("/", name="guide_list")
      */
     public function __invoke(): Response
     {
