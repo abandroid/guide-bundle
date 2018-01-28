@@ -1,0 +1,11 @@
+guide_list:
+    path: /
+    controller: Endroid\GuideBundle\Controller\ListController
+
+guide_rss:
+    path: /rss
+    controller: Endroid\GuideBundle\Controller\RssController
+
+guide_show:
+    path: /{type}/{label}
+    controller: Endroid\GuideBundle\Controller\ShowController

@@ -10,11 +10,10 @@
 namespace Endroid\GuideBundle\Controller;
 
 use Endroid\Guide\Guide;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
 
-class ListController
+final class ListController
 {
     private $guide;
     private $templating;
@@ -25,9 +24,6 @@ class ListController
         $this->templating = $templating;
     }
 
-    /**
-     * @Route("/", name="guide_list")
-     */
     public function __invoke(): Response
     {
         $shows = $this->guide->load();

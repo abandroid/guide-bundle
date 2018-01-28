@@ -10,11 +10,10 @@
 namespace Endroid\GuideBundle\Controller;
 
 use Endroid\Guide\Guide;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
 
-class RssController
+final class RssController
 {
     private $guide;
     private $templating;
@@ -25,9 +24,6 @@ class RssController
         $this->templating = $templating;
     }
 
-    /**
-     * @Route("/rss", defaults={"_format"="xml"}, name="guide_rss")
-     */
     public function __invoke(): Response
     {
         $shows = $this->guide->load();
@@ -38,6 +34,8 @@ class RssController
             }
         }
 
-        return new Response($this->templating->render('rss.xml.twig', ['shows' => $shows]));
+        $xml = $this->templating->render('@EndroidGuide/rss.xml.twig', ['shows' => $shows]);
+
+        return new Response($xml, Response::HTTP_OK, ['Content-Type' => 'text/xml']);
     }
 }
