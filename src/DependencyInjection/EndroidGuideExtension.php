@@ -32,12 +32,14 @@ class EndroidGuideExtension extends Extension implements PrependExtensionInterfa
 
     public function prepend(ContainerBuilder $container): void
     {
+        $path = __DIR__.'/../Resources/public/build/manifest.json';
+
         // Add the package to the assets configuration so the correct manifest is used
         $container->prependExtensionConfig('framework', [
             'assets' => [
                 'packages' => [
                     'endroid_guide' => [
-                        'json_manifest_path' => '%kernel.project_dir%/public/bundles/endroidguide/build/manifest.json',
+                        'json_manifest_path' => realpath($path),
                     ],
                 ],
             ],
