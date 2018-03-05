@@ -8,13 +8,13 @@ services:
         Endroid\Guide\Loader\LoaderInterface:
             tags: ['endroid_guide.loader']
 
+    Endroid\Guide\Loader\:
+        resource: '%kernel.project_dir%/vendor/endroid/guide/src/Loader/*'
+
     Endroid\GuideBundle\Controller\:
         resource: '../../Controller'
         tags: ['controller.service_arguments']
 
-    Endroid\Guide\Guide: ~
-
-    Endroid\Guide\Loader\EpguidesLoader: ~
-    Endroid\Guide\Loader\LuckyTvLoader: ~
-    Endroid\Guide\Loader\NpoLoader: ~
-    Endroid\Guide\Loader\RtlLoader: ~
+    Endroid\Guide\Guide:
+        calls:
+            - [addLoaders, [!tagged endroid_guide.loader]]
