@@ -20,7 +20,7 @@
         "symfony/web-link": "^3.0|^4.0"
     },
     "require-dev": {
-        "endroid/bundle-test": "^1.0"
+        "endroid/bundle-test": "dev-master"
     },
     "autoload": {
         "psr-4": {
