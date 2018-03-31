@@ -23,12 +23,12 @@ matrix:
 before_install:
   - composer self-update
   - if [ "$SYMFONY_VERSION" != "" ]; then composer require --dev --no-update symfony/symfony:"$SYMFONY_VERSION"; fi;
-  - cp vendor/endroid/bundle-test/.env.travis vendor/endroid/bundle-test/.env.test
 
 install:
   - composer update --no-interaction --prefer-dist $COMPOSER_FLAGS
 
 script:
+  - cp vendor/endroid/bundle-test/.env.travis vendor/endroid/bundle-test/.env.test
   - vendor/bin/simple-phpunit
   - vendor/endroid/bundle-test/bin/console server:run 0.0.0.0:9090 -q &
   - vendor/bin/behat
