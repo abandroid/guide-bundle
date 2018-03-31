@@ -28,10 +28,7 @@ install:
   - composer update --no-interaction --prefer-dist $COMPOSER_FLAGS
 
 script:
-  - cp vendor/endroid/bundle-test/.env.travis vendor/endroid/bundle-test/.env.test
-  - vendor/bin/simple-phpunit
-  - vendor/endroid/bundle-test/bin/console server:run 0.0.0.0:9090 -q &
-  - vendor/bin/behat
+  - vendor/bin/bundle-test
 
 notifications:
   email: info@endroid.nl
