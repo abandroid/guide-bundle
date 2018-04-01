@@ -3,7 +3,9 @@ Feature: Guide index
   As a web user
   I need to be able to open the page
 
+  @javascript
   Scenario: Visiting guide index
     And I am on "/guide"
+    And I make a screenshot
     Then I should see "Guide"
     And the response status code should be 200
