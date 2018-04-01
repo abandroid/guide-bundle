@@ -15,7 +15,7 @@ default:
                     verify: false
             selenium2:
                 browser: chrome
-                wd_host: http://localhost:4444/wd/hub
+                wd_host: http://selenium_hub:4444/wd/hub
                 capabilities:
                     marionette: true
                     chrome:
