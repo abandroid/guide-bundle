@@ -7,7 +7,7 @@ Feature: Guide index
   Scenario: Visiting guide index
     And I am on "/guide"
     Then I should see "Guide"
-    
+
   Scenario: Visiting guide index
     And I am on "/guide"
     Then I should see "Guide"

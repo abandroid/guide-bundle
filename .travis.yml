@@ -1,9 +1,12 @@
+dist: trusty
 language: php
-
 sudo: false
 
 services:
   - mysql
+
+addons:
+  chrome: stable
 
 php:
   - 7.1
@@ -28,7 +31,7 @@ install:
   - composer update --no-interaction --prefer-dist $COMPOSER_FLAGS
 
 script:
-  - vendor/bin/bundle-test
+  - bin/bundle-test
 
 notifications:
   email: info@endroid.nl
