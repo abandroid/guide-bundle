@@ -6,6 +6,9 @@ Feature: Guide index
   @javascript
   Scenario: Visiting guide index
     And I am on "/guide"
-    And I make a screenshot
+    Then I should see "Guide"
+    
+  Scenario: Visiting guide index
+    And I am on "/guide"
     Then I should see "Guide"
     And the response status code should be 200
