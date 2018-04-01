@@ -31,7 +31,7 @@ install:
   - composer update --no-interaction --prefer-dist $COMPOSER_FLAGS
 
 script:
-  - bin/bundle-test
+  - vendor/bin/bundle-test
 
 notifications:
   email: info@endroid.nl
