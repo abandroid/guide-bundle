@@ -9,7 +9,7 @@ services:
             tags: ['endroid_guide.loader']
 
     Endroid\Guide\Loader\:
-        resource: '../../../vendor/endroid/guide/src/Loader/*'
+        resource: '../../../../guide/src/Loader/*'
 
     Endroid\GuideBundle\Controller\:
         resource: '../../Controller'
