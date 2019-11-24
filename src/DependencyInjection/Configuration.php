@@ -18,21 +18,26 @@ class Configuration implements ConfigurationInterface
 {
     public function getConfigTreeBuilder(): TreeBuilder
     {
-        $treeBuilder = new TreeBuilder();
+        $treeBuilder = new TreeBuilder('endroid_guide');
 
-        $treeBuilder
-            ->root('endroid_guide')
-                ->children()
-                    ->arrayNode('shows')
-                        ->prototype('array')
-                            ->children()
-                                ->scalarNode('label')->isRequired()->end()
-                                ->scalarNode('type')->isRequired()->end()
-                                ->scalarNode('url')->end()
-                            ->end()
+        if (method_exists($treeBuilder, 'root')) {
+            $rootNode = $treeBuilder->root('endroid_guide');
+        } else {
+            $rootNode = $treeBuilder->getRootNode();
+        }
+
+        $rootNode
+            ->children()
+                ->arrayNode('shows')
+                    ->prototype('array')
+                        ->children()
+                            ->scalarNode('label')->isRequired()->end()
+                            ->scalarNode('type')->isRequired()->end()
+                            ->scalarNode('url')->end()
                         ->end()
                     ->end()
                 ->end()
+            ->end()
         ;
 
         return $treeBuilder;
